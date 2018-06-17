@@ -15,5 +15,10 @@ Route::get('/','StaticPagesController@home')->name('home');
 Route::get('/about','StaticPagesController@about')->name('about');
 Route::get('/help','StaticPagesController@help')->name('help');
 
-//登陆
+//注册
 Route::get('/signup','UsersController@create')->name('signup');
+Route::resource('users','UsersController');
+//登陆
+Route::get('login','SessionsController@create')->name('login');
+Route::post('login','SessionsController@store')->name('login');
+Route::delete('logout','SessionsController@destroy')->name('logout');
